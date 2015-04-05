@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "tests.h"
 #include "doomsday.h"
 #include "dayOfWeek.h"
 
@@ -13,8 +14,7 @@ int main(int argc, char *argv[]) {
 
     if (argc == 2) {
         if (strcmp(argv[1], "-t") == EQUAL) {
-            // TODO: implement tests
-            printf("Running tests\n");
+            runTests();
         } else {
             displayUsage();
         }

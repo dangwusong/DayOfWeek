@@ -6,13 +6,13 @@
 
 #define EQUAL 0
 
-#define TUESDAY  0
-#define WEDNESDAY 1
-#define THURSDAY 2
-#define FRIDAY   3
-#define SATURDAY 4
-#define SUNDAY   5
-#define MONDAY   6
+#define SUNDAY   0
+#define MONDAY   1
+#define TUESDAY  2
+#define WEDNESDAY 3
+#define THURSDAY 4
+#define FRIDAY   5
+#define SATURDAY 6
 
 #define START_OF_GREGORIAN_CALENDER 1582
 

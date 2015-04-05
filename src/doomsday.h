@@ -4,6 +4,7 @@
 int getDayOfWeek(int day, int month, int year);
 int getDoomsday(int year);
 int isLeapYear(int year);
-int getAnchorDay(int month, int year);
+int getMonthAnchorDay(int month, int year);
+int getCenturyAnchorDay(int year);
 
 #endif
