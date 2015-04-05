@@ -4,6 +4,8 @@
 #define TRUE 1
 #define FALSE 0
 
+#define EQUAL 0
+
 #define TUESDAY  0
 #define WEDNESDAY 1
 #define THURSDAY 2
