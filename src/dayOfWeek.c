@@ -1,11 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "tests.h"
-#include "doomsday.h"
 #include "dayOfWeek.h"
-
-// TODO: refactor
+#include "doomsday.h"
+#include "tests.h"
 
 int main(int argc, char *argv[]) {
     int day = 0;
@@ -42,7 +40,6 @@ int main(int argc, char *argv[]) {
         displayUsage();
     }
 
-
     return EXIT_SUCCESS;
 }
 
@@ -75,7 +72,6 @@ char *getDayName(int day) {
 }
 
 void displayUsage() {
-    // TODO: move this to read from usage file
     printf("usage: dayofweek (<flag> [yyyy]) | (<dd> <mm> <yyyy>)\n");
     printf("flags\n");
     printf("-t\t run tests.\n");

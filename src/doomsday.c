@@ -3,44 +3,29 @@
 #include "doomsday.h"
 
 int getDayOfWeek(int day, int month, int year) {
-    int dayOfWeek = 0;
-    int doomsday = getDoomsday(year);
-
     int difference = day - getMonthAnchorDay(month, year);
-    dayOfWeek = (doomsday + difference) % 7;
+    int dayOfWeek = (getDoomsday(year) + difference) % 7;
 
-    while (dayOfWeek < 0) {
+    if (dayOfWeek < 0)
         dayOfWeek += 7;
-    }
 
     return dayOfWeek;
 }
 
 int getDoomsday(int year) {
-    int lastDigits = year % 100;    // last 2 digits of the year
+    int digits = year % 100;
 
-    int a = floor(lastDigits / 12); // floor of the quotient
-    int b = lastDigits % 12;        // remainder
-    int c = floor(b / 4);           // floot of quotient
-    int anchor = getCenturyAnchorDay(year);
-
-    return (a + b + c + anchor) % 7;     // sum
-
-    /*if (lastDigits % 2 != 0) {*/
-        /*lastDigits += 11;*/
-    /*}*/
-
-    /*lastDigits /= 2;*/
-
-    /*if (lastDigits % 2 != 0) {*/
-        /*lastDigits += 11;*/
-    /*}*/
-
-    /*lastDigits = 7 - (lastDigits % 7);*/
-
+    // calculations based off Conway's Doomsday algorithm
+    int a = floor(digits / 12);          // floor of the quotient
+    int b = digits % 12;                 // remainder
+    int c = floor(b / 4);                // floot of quotient
+    int d = getCenturyAnchorDay(year);
+    return (a + b + c + d) % 7;
 }
 
 int isLeapYear(int year) {
+    if (year < START_OF_GREGORIAN_CALENDER)
+        return FALSE;
     return year % 4 == 0 || year % 400 == 0;
 }
 
@@ -70,7 +55,6 @@ int getMonthAnchorDay(int month, int year) {
 
 int getCenturyAnchorDay(int year) {
     year %= 400;
-
     if (year >= 0 && year <= 99)
         return TUESDAY;
     if (year >= 100 && year <= 199)
@@ -79,6 +63,5 @@ int getCenturyAnchorDay(int year) {
         return FRIDAY;
     if (year >= 300 && year <= 399)
         return WEDNESDAY;
-
     return 0;
 }

@@ -14,8 +14,6 @@
 #define FRIDAY   5
 #define SATURDAY 6
 
-#define START_OF_GREGORIAN_CALENDER 1582
-
 char *getDayName(int day);
 void displayUsage(void);
 
